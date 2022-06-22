@@ -5,21 +5,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @RestController
 public class HelloWorldController {
 
     @GetMapping("/hello")
-    public String hello(){
-        return "こんにちは！　いい天気ですね！";
+    public String start() {
+        return "HelloWorld";
     }
 
-    //現在日時情報を指定フォーマットの文字列で取得
-    LocalDateTime nowDatetime = LocalDateTime.now();
-    DateTimeFormatter java8Format = DateTimeFormatter.ofPattern("yyyy/mm/dd");
-
-//    日時情報を指定のフォーマットの文字列で取得
-
+    @GetMapping("/time")
+    public String time() {
+        LocalDateTime nowDateTime = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
+        String dateTimeJp = format.format(nowDateTime);
+        return dateTimeJp;
+    }
 
 }
