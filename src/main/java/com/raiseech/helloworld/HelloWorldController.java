@@ -14,6 +14,11 @@ public class HelloWorldController {
         return "HelloWorld";
     }
 
+    @GetMapping("/japanese")
+    public String greeting() {
+        return "おはようございます";
+    }
+
     @GetMapping("/time")
     public String time() {
         LocalDateTime nowDateTime = LocalDateTime.now();
