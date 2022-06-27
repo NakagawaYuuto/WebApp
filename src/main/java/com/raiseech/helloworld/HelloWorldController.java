@@ -1,6 +1,7 @@
 package com.raiseech.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class HelloWorldController {
 
     @GetMapping("/hello")
-    public String start() {
+    public String hello(@RequestParam("name") String name) {
         return "HelloWorld";
     }
 
